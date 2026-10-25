@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --sky-blue: #63D0F2;
+  --light-cyan: #85E4FF;
+  --bright-blue: #168BFF;
+  --electric-blue: #0757E8;
+  --deep-blue: #052B69;
+  --dark-navy: #031326;
+  --almost-black: #02070D;
+  --white-pure: #F5FAFF;
+  --muted-bluegray: #A8C2DA;
+  --glass-border: rgba(133, 228, 255, 0.45);
+  --glass-surface: rgba(30, 117, 205, 0.16);
+  --glass-glow: 0 0 30px rgba(99, 208, 242, 0.28);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--almost-black);
+  color: var(--white-pure);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Background Atmosphere - Luminous Sky Blue to Electric Blue, Deep Navy and Almost Black */
+.cinematic-bg {
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(99, 208, 242, 0.35) 0%, rgba(7, 87, 232, 0.22) 45%, transparent 75%),
+    radial-gradient(circle 600px at 15% 45%, rgba(22, 139, 255, 0.12) 0%, transparent 60%),
+    radial-gradient(circle 700px at 85% 65%, rgba(5, 43, 105, 0.3) 0%, transparent 70%),
+    linear-gradient(180deg, #020f24 0%, #031326 30%, #020b17 65%, #02070D 100%);
+  background-attachment: fixed;
+}
+
+/* 3D Blue Glassmorphism Panels */
+.glass-panel {
+  background: rgba(30, 117, 205, 0.16);
+  backdrop-filter: blur(28px) saturate(180%);
+  -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid rgba(133, 228, 255, 0.38);
+  box-shadow: 
+    0 15px 35px rgba(2, 7, 13, 0.6),
+    inset 0 1px 1.5px rgba(133, 228, 255, 0.45),
+    inset 0 0 16px rgba(99, 208, 242, 0.08);
+  position: relative;
+}
+
+.glass-panel-elevated {
+  background: linear-gradient(135deg, rgba(30, 117, 205, 0.24) 0%, rgba(5, 43, 105, 0.28) 100%);
+  backdrop-filter: blur(32px) saturate(190%);
+  -webkit-backdrop-filter: blur(32px) saturate(190%);
+  border: 1px solid rgba(133, 228, 255, 0.55);
+  box-shadow: 
+    0 20px 45px rgba(2, 7, 13, 0.75),
+    0 0 35px rgba(99, 208, 242, 0.22),
+    inset 0 1.5px 2px rgba(133, 228, 255, 0.6),
+    inset 0 -1px 2px rgba(7, 87, 232, 0.4);
+}
+
+.glass-panel-subtle {
+  background: rgba(14, 52, 98, 0.24);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(133, 228, 255, 0.22);
+  box-shadow: inset 0 1px 1px rgba(133, 228, 255, 0.25);
+}
+
+.glass-pill {
+  background: rgba(30, 117, 205, 0.22);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(133, 228, 255, 0.45);
+  box-shadow: 
+    0 4px 15px rgba(2, 7, 13, 0.4),
+    inset 0 1px 1px rgba(133, 228, 255, 0.5);
+  border-radius: 9999px;
+}
+
+.glass-pill:hover {
+  background: rgba(30, 117, 205, 0.35);
+  border-color: rgba(133, 228, 255, 0.8);
+  box-shadow: 0 0 20px rgba(99, 208, 242, 0.4);
+}
+
+/* Organic Asymmetric Curves */
+.hero-curve {
+  border-radius: 40px 100px 40px 40px;
+}
+
+@media (max-width: 768px) {
+  .hero-curve {
+    border-radius: 32px;
+  }
+}
+
+.organic-pebble {
+  border-radius: 48% 52% 45% 55% / 54% 46% 54% 46%;
+}
+
+.about-me-curve {
+  border-radius: 36px 64px 36px 48px;
+}
+
+/* Glowing text and borders */
+.text-glow-cyan {
+  text-shadow: 0 0 15px rgba(133, 228, 255, 0.6), 0 0 30px rgba(99, 208, 242, 0.35);
+}
+
+.text-glow-blue {
+  text-shadow: 0 0 20px rgba(22, 139, 255, 0.7);
+}
+
+.border-glow-cyan {
+  box-shadow: 0 0 15px rgba(133, 228, 255, 0.35), inset 0 1px 2px rgba(133, 228, 255, 0.5);
+}
+
+.tube-glow {
+  filter: drop-shadow(0 0 25px rgba(22, 139, 255, 0.55));
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #02070D;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(30, 117, 205, 0.5);
+  border-radius: 4px;
+  border: 1px solid rgba(133, 228, 255, 0.2);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 208, 242, 0.6);
+}
+
+/* Accessibility Focus States */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #85E4FF;
+  outline-offset: 2px;
+}
